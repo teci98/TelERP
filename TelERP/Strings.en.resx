@@ -1,0 +1,650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Ajustes" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Apellidos" xml:space="preserve">
+    <value>Surname: </value>
+  </data>
+  <data name="Añadir" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AñadirNuevoTrabajo" xml:space="preserve">
+    <value>Add new assignment</value>
+  </data>
+  <data name="AñadirServicio" xml:space="preserve">
+    <value>Add new service</value>
+  </data>
+  <data name="AñadirServsuario" xml:space="preserve">
+    <value>Add service to the user</value>
+  </data>
+  <data name="AñadirTraUsuario" xml:space="preserve">
+    <value>Add new assignment</value>
+  </data>
+  <data name="AñadirUsuario" xml:space="preserve">
+    <value>Add new user</value>
+  </data>
+  <data name="Borrar" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="BorrarTurno" xml:space="preserve">
+    <value>Delete turn</value>
+  </data>
+  <data name="Buscar" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Cancelar" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Cerrar" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="Cif" xml:space="preserve">
+    <value>CIF: </value>
+  </data>
+  <data name="Codigo" xml:space="preserve">
+    <value>Code: </value>
+  </data>
+  <data name="ConectarTelegram" xml:space="preserve">
+    <value>Connect Telegram</value>
+  </data>
+  <data name="Confirmar" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="DelServicio" xml:space="preserve">
+    <value>Delete service</value>
+  </data>
+  <data name="DelTrabajo" xml:space="preserve">
+    <value>Delete assignment</value>
+  </data>
+  <data name="DelUsuario" xml:space="preserve">
+    <value>Delete user</value>
+  </data>
+  <data name="Descripcion" xml:space="preserve">
+    <value>Description: </value>
+  </data>
+  <data name="Detalles" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Deuda" xml:space="preserve">
+    <value>Debt: </value>
+  </data>
+  <data name="Deudas" xml:space="preserve">
+    <value>Debts</value>
+  </data>
+  <data name="Dias" xml:space="preserve">
+    <value>Days: </value>
+  </data>
+  <data name="Direccion" xml:space="preserve">
+    <value>Direction: </value>
+  </data>
+  <data name="Domingo" xml:space="preserve">
+    <value>Sunday</value>
+  </data>
+  <data name="DomingoCorto" xml:space="preserve">
+    <value>Sun</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email: </value>
+  </data>
+  <data name="en" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="EnviarCod" xml:space="preserve">
+    <value>Send code</value>
+  </data>
+  <data name="EnviarFact" xml:space="preserve">
+    <value>Send invoice</value>
+  </data>
+  <data name="EnviarMsg" xml:space="preserve">
+    <value>Send message</value>
+  </data>
+  <data name="EnviarNot" xml:space="preserve">
+    <value>Send receipt</value>
+  </data>
+  <data name="es" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="EscribirMensaje" xml:space="preserve">
+    <value>Write here the content of the message you want to send</value>
+  </data>
+  <data name="Factura" xml:space="preserve">
+    <value>Invoice</value>
+  </data>
+  <data name="Facturas" xml:space="preserve">
+    <value>Invoices</value>
+  </data>
+  <data name="FacturasNoPagadas" xml:space="preserve">
+    <value>Show only unpaid invoices</value>
+  </data>
+  <data name="Fecha" xml:space="preserve">
+    <value>Date: </value>
+  </data>
+  <data name="FechaLimite" xml:space="preserve">
+    <value>Deadline: </value>
+  </data>
+  <data name="Fin" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="fr" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="HeaderApellidos" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="HeaderAño" xml:space="preserve">
+    <value>Year</value>
+  </data>
+  <data name="HeaderEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="HeaderFecha" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="HeaderFin" xml:space="preserve">
+    <value>End</value>
+  </data>
+  <data name="HeaderID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="HeaderInicio" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="HeaderMes" xml:space="preserve">
+    <value>Month</value>
+  </data>
+  <data name="HeaderNombre" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="HeaderPrecio" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="HeaderReferencia" xml:space="preserve">
+    <value>Reference</value>
+  </data>
+  <data name="HeaderSeleccionar" xml:space="preserve">
+    <value>Select</value>
+  </data>
+  <data name="HeaderServicios" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="HeaderTelefono" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="HeaderTotal" xml:space="preserve">
+    <value>TOTAL</value>
+  </data>
+  <data name="HeaderTrabajos" xml:space="preserve">
+    <value>Assignments</value>
+  </data>
+  <data name="HeaderUsuario" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="HintApellido" xml:space="preserve">
+    <value>Write the surname here</value>
+  </data>
+  <data name="HintBuscar" xml:space="preserve">
+    <value>Type here to search</value>
+  </data>
+  <data name="HintDescripcion" xml:space="preserve">
+    <value>Enter here the description of the service</value>
+  </data>
+  <data name="HintDescripcionTrabajo" xml:space="preserve">
+    <value>Enter here the description of the assignment</value>
+  </data>
+  <data name="HintEmail" xml:space="preserve">
+    <value>Write the email here</value>
+  </data>
+  <data name="HintNombre" xml:space="preserve">
+    <value>Write the name here</value>
+  </data>
+  <data name="HintPrecio" xml:space="preserve">
+    <value>Write the price here</value>
+  </data>
+  <data name="HintTelefono" xml:space="preserve">
+    <value>Write the phone number here</value>
+  </data>
+  <data name="Idioma" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="InfoEmpresa" xml:space="preserve">
+    <value>Company information</value>
+  </data>
+  <data name="Inicio" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Jueves" xml:space="preserve">
+    <value>Thursday</value>
+  </data>
+  <data name="JuevesCorto" xml:space="preserve">
+    <value>Thu</value>
+  </data>
+  <data name="Lunes" xml:space="preserve">
+    <value>Monday</value>
+  </data>
+  <data name="LunesCorto" xml:space="preserve">
+    <value>Mon</value>
+  </data>
+  <data name="MarcarPagado" xml:space="preserve">
+    <value>Mark as paid</value>
+  </data>
+  <data name="Martes" xml:space="preserve">
+    <value>Tuesday</value>
+  </data>
+  <data name="MartesCorto" xml:space="preserve">
+    <value>Tue</value>
+  </data>
+  <data name="Mensaje" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="MensajeEnviado" xml:space="preserve">
+    <value>Message sended succesfully</value>
+  </data>
+  <data name="Miercoles" xml:space="preserve">
+    <value>Wednesday</value>
+  </data>
+  <data name="MiercolesCorto" xml:space="preserve">
+    <value>Wed</value>
+  </data>
+  <data name="ModeloHora" xml:space="preserve">
+    <value>XX:XX</value>
+  </data>
+  <data name="Modificar" xml:space="preserve">
+    <value>Modify</value>
+  </data>
+  <data name="ModServicio" xml:space="preserve">
+    <value>Modify service</value>
+  </data>
+  <data name="ModServicios" xml:space="preserve">
+    <value>Modify services</value>
+  </data>
+  <data name="ModTrabajo" xml:space="preserve">
+    <value>Modify assignment</value>
+  </data>
+  <data name="ModUsuario" xml:space="preserve">
+    <value>Modify user</value>
+  </data>
+  <data name="MostrarInfo" xml:space="preserve">
+    <value>Show information</value>
+  </data>
+  <data name="MsgAssignmentInsertado" xml:space="preserve">
+    <value>Assignment saved succesfully</value>
+  </data>
+  <data name="MsgAssignmentModificado" xml:space="preserve">
+    <value>Assignment modified succesfully</value>
+  </data>
+  <data name="MsgBorrarUsuario" xml:space="preserve">
+    <value>Are you sure you want to delete this user?</value>
+  </data>
+  <data name="MsgCambiosCancelados" xml:space="preserve">
+    <value>Any change has been done</value>
+  </data>
+  <data name="MsgDiasService" xml:space="preserve">
+    <value>You must select at least one day</value>
+  </data>
+  <data name="MsgElegirFecha" xml:space="preserve">
+    <value>Please select a date</value>
+  </data>
+  <data name="MsgElegirFechaMayor" xml:space="preserve">
+    <value>Selected date must be after now</value>
+  </data>
+  <data name="MsgElegirTurnoService" xml:space="preserve">
+    <value>Please select a turn</value>
+  </data>
+  <data name="MsgEscribaMensaje" xml:space="preserve">
+    <value>Please write a message to send</value>
+  </data>
+  <data name="MsgEscribirApellido" xml:space="preserve">
+    <value>Please write a surname</value>
+  </data>
+  <data name="MsgEscribirDescripcion" xml:space="preserve">
+    <value>Please write a description</value>
+  </data>
+  <data name="MsgEscribirEmail" xml:space="preserve">
+    <value>Please write a valid email</value>
+  </data>
+  <data name="MsgEscribirNombre" xml:space="preserve">
+    <value>Please write a name</value>
+  </data>
+  <data name="MsgEscribirPrecio" xml:space="preserve">
+    <value>Please write a price</value>
+  </data>
+  <data name="MsgEscribirTelefono" xml:space="preserve">
+    <value>Please write a phone number</value>
+  </data>
+  <data name="MsgEscribirTelefonoValido" xml:space="preserve">
+    <value>Please write a valid phone number</value>
+  </data>
+  <data name="MsgHorasMal" xml:space="preserve">
+    <value>Please insert the time in the correct format (XX:XX)</value>
+  </data>
+  <data name="MsgModificarServiciosPrincipal" xml:space="preserve">
+    <value>To modify a service, go to the services tab in the main window</value>
+  </data>
+  <data name="MsgNoTelegram" xml:space="preserve">
+    <value>The selected user doesn't have tlegram, sorry for the inconvenience</value>
+  </data>
+  <data name="MsgNoTelegramConectado" xml:space="preserve">
+    <value>You doesn't have telegram connected, so some of the functions are limited.
+To connect it go to Settings tab</value>
+  </data>
+  <data name="MsgPrecioMal" xml:space="preserve">
+    <value>Please insert the price in the valid format XX,xx</value>
+  </data>
+  <data name="MsgRealizarCambiosPregunta" xml:space="preserve">
+    <value>Are you sure you want to confirm all the changes?</value>
+  </data>
+  <data name="MsgSeguroBorrarServicio" xml:space="preserve">
+    <value>If you delete the service, it will be deleted from all the user that have it.
+Are you sure you wan to continue?</value>
+  </data>
+  <data name="MsgSeguroBorrarTrabajo" xml:space="preserve">
+    <value>Are you sure you want to delete this assignment?</value>
+  </data>
+  <data name="MsgSeguroDeuda" xml:space="preserve">
+    <value>Are you sure you want to mark this debt(s) as paid?</value>
+  </data>
+  <data name="MsgSeguroEnviar" xml:space="preserve">
+    <value>Are you sure you want to send this invoice(s)?</value>
+  </data>
+  <data name="MsgSeguroPagar" xml:space="preserve">
+    <value>Are you sure you want to mark this invoice(s) as paid?</value>
+  </data>
+  <data name="MsgSeguroPagarTrabajo" xml:space="preserve">
+    <value>Are you sure you want to mark this assignment(s) as paid?</value>
+  </data>
+  <data name="MsgSeleccionarInvoice" xml:space="preserve">
+    <value>Select an invoice before</value>
+  </data>
+  <data name="MsgSeleccionarItem" xml:space="preserve">
+    <value>Select an item before</value>
+  </data>
+  <data name="MsgSeleccionarServicio" xml:space="preserve">
+    <value>Select a service before</value>
+  </data>
+  <data name="MsgSeleccionarTrabajo" xml:space="preserve">
+    <value>Select an assignment before</value>
+  </data>
+  <data name="MsgSeleccionarTurn" xml:space="preserve">
+    <value>Select a turn before</value>
+  </data>
+  <data name="MsgSeleccionarUsuario" xml:space="preserve">
+    <value>Select an user before</value>
+  </data>
+  <data name="MsgSoloNumerosPrecio" xml:space="preserve">
+    <value>This field only accept numbers and the separator ,</value>
+  </data>
+  <data name="MsgSoloNumerosTelegram" xml:space="preserve">
+    <value>This field only accept numbers</value>
+  </data>
+  <data name="MsgSoloNumerosTurn" xml:space="preserve">
+    <value>This field only accept numbers and the separator :</value>
+  </data>
+  <data name="MsgSusbscribirUsuarioServicio" xml:space="preserve">
+    <value>Do you want to subscribe the user to some services?</value>
+  </data>
+  <data name="MsgTelegramAntes" xml:space="preserve">
+    <value>To use the telegram functions, you must connect it before in the "Settigns" tab</value>
+  </data>
+  <data name="MsgTelegramConectado" xml:space="preserve">
+    <value>Telegram succesfully conected</value>
+  </data>
+  <data name="MsgTelegramNoConectado" xml:space="preserve">
+    <value>Error connecting Telegram</value>
+  </data>
+  <data name="MsgTurnoBorrado" xml:space="preserve">
+    <value>The turn has been deleted succesfully</value>
+  </data>
+  <data name="MsgTurnoExiste" xml:space="preserve">
+    <value>It already exist a turn with this range of time</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="Nombre" xml:space="preserve">
+    <value>Name: </value>
+  </data>
+  <data name="NuevoServicio" xml:space="preserve">
+    <value>New service</value>
+  </data>
+  <data name="NuevoTrabajo" xml:space="preserve">
+    <value>New assignment</value>
+  </data>
+  <data name="NuevoTurno" xml:space="preserve">
+    <value>Create new turn:</value>
+  </data>
+  <data name="NuevoUsuario" xml:space="preserve">
+    <value>New user</value>
+  </data>
+  <data name="NumTel" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="Pagar" xml:space="preserve">
+    <value>Pay</value>
+  </data>
+  <data name="PagarDeuda" xml:space="preserve">
+    <value>Pay debt</value>
+  </data>
+  <data name="PagarTrabajo" xml:space="preserve">
+    <value>Pay assignments</value>
+  </data>
+  <data name="Precio" xml:space="preserve">
+    <value>Price: </value>
+  </data>
+  <data name="Sabado" xml:space="preserve">
+    <value>Saturday</value>
+  </data>
+  <data name="SabadoCorto" xml:space="preserve">
+    <value>Sat</value>
+  </data>
+  <data name="Salir" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="SelUser" xml:space="preserve">
+    <value>Select user</value>
+  </data>
+  <data name="ServiceCreado" xml:space="preserve">
+    <value>Service created succesfully</value>
+  </data>
+  <data name="ServiceModificado" xml:space="preserve">
+    <value>Service modified succesfully</value>
+  </data>
+  <data name="Servicio" xml:space="preserve">
+    <value>Service: </value>
+  </data>
+  <data name="Servicios" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="ServicioSolo" xml:space="preserve">
+    <value>Service</value>
+  </data>
+  <data name="Si" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="Subscripcion" xml:space="preserve">
+    <value>¿Subscription?</value>
+  </data>
+  <data name="Telefono" xml:space="preserve">
+    <value>Phone: </value>
+  </data>
+  <data name="Telegram" xml:space="preserve">
+    <value>Telegram: </value>
+  </data>
+  <data name="TelegramServicioModificado" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TelegramServiciosModificado" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TelegramTrabajoCreado" xml:space="preserve">
+    <value />
+  </data>
+  <data name="TextoBorrarTurn" xml:space="preserve">
+    <value>To delete this turn, all the services with it will change to the turn you choose</value>
+  </data>
+  <data name="Tipo" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="TituloCambios" xml:space="preserve">
+    <value>Change confirmation</value>
+  </data>
+  <data name="Trabajos" xml:space="preserve">
+    <value>Assignments</value>
+  </data>
+  <data name="TrabajoSolo" xml:space="preserve">
+    <value>Assignment</value>
+  </data>
+  <data name="TrabajosPendientes" xml:space="preserve">
+    <value>Pending assignments</value>
+  </data>
+  <data name="Turno" xml:space="preserve">
+    <value>Turn: </value>
+  </data>
+  <data name="TurnoBorrado" xml:space="preserve">
+    <value>Turn deleted succesfully</value>
+  </data>
+  <data name="Turnos" xml:space="preserve">
+    <value>Turns</value>
+  </data>
+  <data name="Usuario" xml:space="preserve">
+    <value>User: </value>
+  </data>
+  <data name="UsuarioCreado" xml:space="preserve">
+    <value>User created succesfully</value>
+  </data>
+  <data name="UsuarioModificado" xml:space="preserve">
+    <value>User modified succesfully</value>
+  </data>
+  <data name="Usuarios" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="VerDetalles" xml:space="preserve">
+    <value>View details</value>
+  </data>
+  <data name="Viernes" xml:space="preserve">
+    <value>Friday</value>
+  </data>
+  <data name="ViernesCorto" xml:space="preserve">
+    <value>Fri</value>
+  </data>
+</root>

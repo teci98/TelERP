@@ -1,0 +1,85 @@
+﻿<Window x:Class="TelERP.Vistas.UserInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TelERP.Vistas"
+        xmlns:p="clr-namespace:TelERP"
+        mc:Ignorable="d"
+        Title="UserInfo" Height="556.525" Width="807.922" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+
+    <Window.Resources>
+
+        <Style TargetType="DataGrid">
+            <Setter Property="VerticalGridLinesBrush" Value="Transparent"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#0277bd"/>
+            <Setter Property="ColumnWidth" Value="*"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="Background" Value="#e1f5fe"/>
+        </Style>
+
+        <Style TargetType="DataGridRow">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Height" Value="28"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#0277bd"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#01579b"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="TextBlock.FontSize" Value="20"/>
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="TextBlock.FontSize" Value="16"/>
+        </Style>
+
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#039be5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="#80d8ff"/>
+                    <Setter Property="Foreground" Value="#01579b"/>
+                    <Setter Property="BorderBrush" Value="#01579b"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Background="#4fc3f7">
+        <Image x:Name="imgUserInfo" HorizontalAlignment="Left" Height="118" Margin="27,22,0,0" VerticalAlignment="Top" Width="136"/>
+        <Label x:Name="lblNombreUserInfo" Content="{x:Static p:Strings.Nombre}" HorizontalAlignment="Left" Margin="202,22,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblApellidoUserInfo" Content="{x:Static p:Strings.Apellidos}" HorizontalAlignment="Left" Margin="202,60,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblEmailUserInfo" Content="{x:Static p:Strings.Email}" HorizontalAlignment="Left" Margin="202,96,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPhoneUserInfo" Content="{x:Static p:Strings.Telefono}" HorizontalAlignment="Left" Margin="521,22,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblTelegramUserInfo" Content="{x:Static p:Strings.Telegram}" HorizontalAlignment="Left" Margin="451,96,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <Label x:Name="lblDebtUserInfo" Content="{x:Static p:Strings.Deuda}" HorizontalAlignment="Left" Margin="521,60,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgServicesUserInfo" Margin="27,187,288,100" CanUserAddRows="False" IsReadOnly="True" MouseDoubleClick="dgServicesUserInfo_MouseDoubleClick"/>
+        <Button x:Name="btnCancelUserInfo" Content="{x:Static p:Strings.Salir}" HorizontalAlignment="Left" Margin="27,0,0,23" VerticalAlignment="Bottom" Width="80" Click="btnCancelUserInfo_Click" Height="50"/>
+        <Button x:Name="btnAddServiceUserInfo" Content="{x:Static p:Strings.ModServicios}" HorizontalAlignment="Right" Margin="0,0,29,263" VerticalAlignment="Bottom" Width="186" Height="50" Click="btnAddServiceUserInfo_Click"/>
+        <Button x:Name="btnAddAssignUserInfo" Content="{x:Static p:Strings.AñadirNuevoTrabajo}" HorizontalAlignment="Right" Margin="0,0,29,180" VerticalAlignment="Bottom" Width="186" Height="50" Click="btnAddAssignUserInfo_Click"/>
+        <Button x:Name="btnModAssignUserInfo" Content="{x:Static p:Strings.ModTrabajo}" HorizontalAlignment="Right" Margin="0,0,29,100" VerticalAlignment="Bottom" Width="186" Height="50" Click="btnModAssignUserInfo_Click"/>
+        <Button x:Name="btnDetallesUserInfo" Content="{x:Static p:Strings.VerDetalles}" HorizontalAlignment="Right" Margin="0,0,29,23" VerticalAlignment="Bottom" Width="186" Height="50" Click="btnDetallesUserInfo_Click"/>
+        <Label x:Name="lblDetalles" Content="{x:Static p:Strings.Servicios}" HorizontalAlignment="Left" Margin="27,148,0,0" VerticalAlignment="Top" FontSize="18"/>
+    </Grid>
+</Window>

@@ -1,0 +1,54 @@
+﻿<Window x:Class="TelERP.Vistas.DetallesItemUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TelERP.Vistas"
+        xmlns:p="clr-namespace:TelERP"
+        mc:Ignorable="d"
+        Title="DetallesItemUser" Height="431.902" Width="378" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
+
+    <Window.Resources>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#039be5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="#80d8ff"/>
+                    <Setter Property="Foreground" Value="#01579b"/>
+                    <Setter Property="BorderBrush" Value="#01579b"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="#e1f5fe"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid Background="#4fc3f7">
+        <Label Content="{x:Static p:Strings.Detalles}" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Width="370" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblDetallesNombre" Content="{x:Static p:Strings.Nombre}" HorizontalAlignment="Left" Margin="30,68,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDetallesDiasUser" Content="{x:Static p:Strings.Dias}" HorizontalAlignment="Left" Margin="30,103,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDetallesTurnoFecha" Content="{x:Static p:Strings.Turno}" HorizontalAlignment="Left" Margin="30,138,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDetallesPrecio" Content="{x:Static p:Strings.Precio}" HorizontalAlignment="Left" Margin="30,173,0,194" VerticalAlignment="Center" Height="35"/>
+        <Label Content="{x:Static p:Strings.Descripcion}" HorizontalAlignment="Left" Margin="30,208,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="tbDetallesDescripcion" Margin="30,240,35,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="98"/>
+        <Button x:Name="btnCerrarDetalles" Content="{x:Static p:Strings.Cerrar}" Margin="130,351,130,0" VerticalAlignment="Top" Click="btnCerrarDetalles_Click"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,464 @@
+﻿<Window x:Class="TelERP.Vistas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TelERP.Vistas"
+        xmlns:p="clr-namespace:TelERP"
+        mc:Ignorable="d"
+        Title="TelERP" WindowState="Maximized" ResizeMode="CanResizeWithGrip" d:DesignWidth="1018.5" d:DesignHeight="628" >
+
+    <Window.Resources>
+
+        <ImageBrush x:Key="tb_mouse_over_right" ImageSource="/TelERP;component/Recursos/chevron-left.png"/>
+        <ImageBrush x:Key="tb_mouse_over_left" ImageSource="/TelERP;component/Recursos/chevron-right.png"/>
+
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <Border Background="#b3e5fc" BorderBrush="#01579b" BorderThickness="0,0,0,2"/>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="5,0,0,0" VerticalAlignment="Center" />
+                            <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                               Visibility="Collapsed" Foreground="#FF324868" FontFamily="Arial"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                    <Condition Property="IsFocused" Value="False"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="DimGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="tb_style" TargetType="{x:Type ToggleButton}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="border" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"/>
+
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsChecked" Value="False"/>
+                                    <Condition Property="IsMouseOver" Value="True"/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource tb_mouse_over_left}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource tb_mouse_over_left}"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource tb_mouse_over_right}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource tb_mouse_over_right}"/>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style TargetType="DataGrid">
+            <Setter Property="VerticalGridLinesBrush" Value="Transparent"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#0277bd"/>
+            <Setter Property="ColumnWidth" Value="*"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="Background" Value="#e1f5fe"/>
+        </Style>
+
+        <Style TargetType="DataGridRow">
+            <Setter Property="Background" Value="AliceBlue"/>
+            <Setter Property="Height" Value="28"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#0277bd"/>
+                    <Setter Property="Foreground" Value="White"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#01579b"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="TextBlock.FontSize" Value="20"/>
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="TextBlock.TextAlignment" Value="Center" />
+            <Setter Property="TextBlock.FontSize" Value="16"/>
+        </Style>
+
+        <Style x:Key="estilotitulos" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <Style x:Key="gigante" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="50"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style x:Key="estiloinfo" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="#e1f5fe"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#039be5"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Style.Triggers>
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="IsMouseOver" Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="#80d8ff"/>
+                    <Setter Property="Foreground" Value="#01579b"/>
+                    <Setter Property="BorderBrush" Value="#01579b"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Rectangle">
+            <Setter Property="Fill" Value="#b3e5fc"/>
+            <Setter Property="Stroke" Value="#01579b"/>
+        </Style>
+
+    </Window.Resources>
+
+    <Grid MouseDown="Principal_MouseDown">
+
+        <Grid x:Name="gGeneral" Background="#4fc3f7" Margin="70,0,0,0" Grid.ColumnSpan="2" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="11*"/>
+                <RowDefinition Height="13*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="289*"/>
+                <ColumnDefinition Width="354*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblFechaMain" Margin="0,10,10,0" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="1" Style="{StaticResource estilotitulos}"/>
+            <DataGrid x:Name="dgDeudasGeneral" Margin="10,120,29,79" CanUserAddRows="False" IsReadOnly="true" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="2"/>
+            <DataGrid x:Name="dgAssignGeneral" Margin="57,63,113,16" CanUserAddRows="False" IsReadOnly="true" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1"/>
+            <Label Content="{x:Static p:Strings.Deudas}" Margin="10,78,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Style="{StaticResource estilotitulos}"/>
+            <Label Content="{x:Static p:Strings.TrabajosPendientes}" Margin="57,21,0,0" RenderTransformOrigin="0.632,0.269" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Style="{StaticResource estilotitulos}"/>
+            <Label Content="{x:Static p:Strings.General}" Margin="10,0" VerticalAlignment="Top" Style="{StaticResource gigante}" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnPagarDeudaGeneral" Content="{x:Static p:Strings.PagarDeuda}" HorizontalAlignment="Left" Margin="10,0,0,10" Grid.Row="1" VerticalAlignment="Bottom" Width="148" Click="btnPagarDeudaGeneral_Click"/>
+            <Button x:Name="btnPagarTrabajosGeneral" Content="{x:Static p:Strings.PagarTrabajo}" HorizontalAlignment="Right" Margin="0,0,29,10" Grid.Row="1" VerticalAlignment="Bottom" Width="148" Click="btnPagarTrabajosGeneral_Click"/>
+        </Grid>
+
+        <Grid x:Name="gUsuarios" Background="#4fc3f7" Margin="70,0,0,0" Grid.ColumnSpan="2" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="401*"/>
+                <ColumnDefinition Width="290"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblSearchUsers" Content="{x:Static p:Strings.Buscar}" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}"/>
+            <TextBox x:Name="txtSearchUsers" Tag="{x:Static p:Strings.HintBuscar}" Height="30" Margin="68,82,36,0" TextWrapping="Wrap" VerticalAlignment="Top" KeyUp="txtSearchUsers_KeyUp"/>
+            <DataGrid x:Name="dgUsers" Margin="10,117,36,97" CanUserAddRows="False" IsReadOnly="True"  SelectionChanged="dgUsers_SelectionChanged" MouseDoubleClick="dgUsers_MouseDoubleClick"/>
+            <Image x:Name="imgUsers"  HorizontalAlignment="Right" Height="100" Margin="0,12,91,0" VerticalAlignment="Top" Width="100" Grid.Column="1"/>
+            <Label x:Name="lblNombreUsers" Content="{x:Static p:Strings.Nombre}" HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" Grid.Column="1" Style="{StaticResource estiloinfo}" />
+            <Label x:Name="lblApellidoUsers" Content="{x:Static p:Strings.Apellidos}" HorizontalAlignment="Left" Margin="10,156,0,0" VerticalAlignment="Top" Grid.Column="1" Style="{StaticResource estiloinfo}" />
+            <Label x:Name="lblEmailUsers" Content="{x:Static p:Strings.Email}" HorizontalAlignment="Left" Margin="10,188,0,0" VerticalAlignment="Top" Grid.Column="1" Style="{StaticResource estiloinfo}" />
+            <Label x:Name="lblPhoneUsers" Content="{x:Static p:Strings.Telefono}" HorizontalAlignment="Left" Margin="10,218,0,0" VerticalAlignment="Top" Grid.Column="1" Style="{StaticResource estiloinfo}" />
+            <Button x:Name="btnNewUser" Content="{x:Static p:Strings.AñadirUsuario}" HorizontalAlignment="Left" Margin="10,0,0,24" VerticalAlignment="Bottom" Width="175" Height="47" Click="btnNewUser_Click"/>
+            <Button x:Name="btnModifyUser" Content="{x:Static p:Strings.ModUsuario}" HorizontalAlignment="Right" Margin="0,0,36,24" VerticalAlignment="Bottom" Width="148" Height="47" Click="btnModifyUser_Click"/>
+            <Button x:Name="btnInfoUsers" Content="{x:Static p:Strings.MostrarInfo}" HorizontalAlignment="Right" Margin="0,0,48,169" VerticalAlignment="Bottom" Width="199" Height="47" Grid.Column="1" Click="btnInfoUsers_Click"/>
+            <Button x:Name="btnAssignUser" Content="{x:Static p:Strings.AñadirTraUsuario}" HorizontalAlignment="Right" Margin="0,0,48,97" VerticalAlignment="Bottom" Width="199" Height="47" Grid.Column="1" Click="btnAssignUser_Click"/>
+            <Button x:Name="btnDeleteUser" Content="{x:Static p:Strings.DelUsuario}" HorizontalAlignment="Right" Margin="0,0,48,24" VerticalAlignment="Bottom" Width="199" Height="47" Grid.Column="1" Click="btnDeleteUser_Click"/>
+            <Border BorderBrush="#01579b" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Width="1"/>
+            <Label Content="{x:Static p:Strings.Usuarios}" Margin="10,0" VerticalAlignment="Top" Style="{StaticResource gigante}" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnMsgUsers" Content="{x:Static p:Strings.EnviarMsg}" HorizontalAlignment="Right" Margin="0,0,48,241" VerticalAlignment="Bottom" Width="199" Height="47" Grid.Column="1" Click="btnMsgUsers_Click"/>
+        </Grid>
+
+        <Grid x:Name="gServices" Background="#4fc3f7" Margin="70,0,0,0" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="401*"/>
+                <ColumnDefinition Width="290"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblSearchServices" Content="{x:Static p:Strings.Buscar}" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}"/>
+            <TextBox x:Name="txtSearchServices" Tag="{x:Static p:Strings.HintBuscar}" Height="30" Margin="68,82,36,0" TextWrapping="Wrap" VerticalAlignment="Top" KeyUp="txtSearchServices_KeyUp"/>
+            <DataGrid x:Name="dgServices" Margin="10,117,36,97" CanUserAddRows="False" IsReadOnly="True" SelectionChanged="dgServices_SelectionChanged"/>
+            <Label x:Name="lblNombreServices" Content="{x:Static p:Strings.Servicio}" HorizontalAlignment="Left" Margin="10,96,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}" Grid.Column="1"/>
+            <Label x:Name="lblPriceServices" Content="{x:Static p:Strings.Precio}" HorizontalAlignment="Left" Margin="10,127,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}" Grid.Column="1"/>
+            <Label x:Name="lblDaysServices" Content="{x:Static p:Strings.Dias}" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}" Grid.Column="1"/>
+            <Label x:Name="lblTurnServices" Content="{x:Static p:Strings.Turno}" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}" Grid.Column="1"/>
+            <Button x:Name="btnNewServices" Content="{x:Static p:Strings.AñadirServicio}" HorizontalAlignment="Left" Margin="10,0,0,22" Width="176" Height="47" VerticalAlignment="Bottom" Click="btnNewServices_Click"/>
+            <Button x:Name="btnModifyServices" Content="{x:Static p:Strings.ModServicio}" Margin="0,0,32,22" HorizontalAlignment="Right" Width="153" Height="47" VerticalAlignment="Bottom" Click="btnModifyServices_Click"/>
+            <Button x:Name="btnDeleteServices" Content="{x:Static p:Strings.DelServicio}" HorizontalAlignment="Left" Margin="98,0,0,22" VerticalAlignment="Bottom" Width="146" Height="47" Grid.Column="1" Click="btnDeleteServices_Click"/>
+            <Label x:Name="lblDescriptionServices" Content="{x:Static p:Strings.Descripcion}" HorizontalAlignment="Left" Margin="10,220,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}" Grid.Column="1"/>
+            <TextBlock x:Name="txbDescriptionServices" HorizontalAlignment="Left" Margin="10,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="234" IsEnabled="False" Grid.Column="1"/>
+            <Border BorderBrush="#01579b" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Width="1"/>
+            <Label Content="{x:Static p:Strings.Servicios}" Margin="10,0" VerticalAlignment="Top" Style="{StaticResource gigante}" Grid.ColumnSpan="2"/>
+        </Grid>
+
+        <Grid x:Name="gTrabajos" Background="#4fc3f7" Margin="70,0,0,0" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="401*"/>
+                <ColumnDefinition Width="290"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="lblSearchAssignments" Content="{x:Static p:Strings.Buscar}" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}"/>
+            <TextBox x:Name="txtSearchAssignments" Tag="{x:Static p:Strings.HintBuscar}" Height="30" Margin="68,82,36,0" TextWrapping="Wrap" VerticalAlignment="Top" KeyUp="txtSearchAssignments_KeyUp"/>
+            <DataGrid x:Name="dgAssignments" Margin="10,117,36,97" CanUserAddRows="False" IsReadOnly="True" SelectionChanged="dgAssignments_SelectionChanged"/>
+            <Label x:Name="lblNombreAssignments" Content="{x:Static p:Strings.Nombre}" HorizontalAlignment="Left" Margin="11,88,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}" Grid.Column="1"/>
+            <Label x:Name="lblUserAssignments" Content="{x:Static p:Strings.Usuario}" HorizontalAlignment="Left" Margin="11,119,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}" Grid.Column="1"/>
+            <Label x:Name="lblDeadlineAssignments" Content="{x:Static p:Strings.Fecha}" HorizontalAlignment="Left" Margin="11,150,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}" Grid.Column="1"/>
+            <Label x:Name="lblPriceAssignments" Content="{x:Static p:Strings.Precio}" HorizontalAlignment="Left" Margin="11,181,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}" Grid.Column="1"/>
+            <Button x:Name="btnNewAssignments" Content="{x:Static p:Strings.AñadirNuevoTrabajo}" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="181" Height="47" Click="btnNewAssignments_Click"/>
+            <Button x:Name="btnModifyAssignments" Content="{x:Static p:Strings.ModTrabajo}" HorizontalAlignment="Right" Margin="0,0,31,10" VerticalAlignment="Bottom" Width="149" Height="47" Click="btnModifyAssignments_Click"/>
+            <Button x:Name="btnDeleteAssignments" Content="{x:Static p:Strings.DelTrabajo}" HorizontalAlignment="Right" Margin="0,0,89,10" VerticalAlignment="Bottom" Width="161" Height="47" Grid.Column="1" Click="btnDeleteAssignments_Click"/>
+            <Label x:Name="lblDescriptionAssignments" Content="{x:Static p:Strings.Descripcion}" HorizontalAlignment="Left" Margin="11,212,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}" Grid.Column="1"/>
+            <TextBlock x:Name="txbDescrptionAssignments" HorizontalAlignment="Left" Margin="11,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="Auto" Width="190" Grid.Column="1" />
+            <Border BorderBrush="#01579b" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Width="1"/>
+            <Label Content="{x:Static p:Strings.Trabajos}" Margin="10,0" VerticalAlignment="Top" Style="{StaticResource gigante}" Grid.ColumnSpan="2"/>
+            <Button x:Name="btnPagarAssignments" Content="{x:Static p:Strings.MarcarPagado}" HorizontalAlignment="Right" Margin="0,0,89,80" VerticalAlignment="Bottom" Width="161" Height="47" Grid.Column="1" Click="btnPagarAssignments_Click"/>
+        </Grid>
+
+        <Grid x:Name="gInvoices" Background="#4fc3f7" Margin="70,0,0,0" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="401*"/>
+                <ColumnDefinition Width="290"/>
+            </Grid.ColumnDefinitions>
+            <DataGrid x:Name="dgInvoices" Margin="10,117,36,75" CanUserAddRows="False" IsReadOnly="True" MouseDoubleClick="dgInvoices_MouseDoubleClick"/>
+            <Button Content="{x:Static p:Strings.VerDetalles}" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="163" Click="Button_Click_3"/>
+            <Label x:Name="lblSearchInvoices" Content="{x:Static p:Strings.Buscar}" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}"/>
+            <TextBox x:Name="txtSearchInvoices" Tag="{x:Static p:Strings.HintBuscar}" Height="30" Margin="68,82,36,0" TextWrapping="Wrap" VerticalAlignment="Top" KeyUp="txtSearchInvoices_KeyUp"/>
+            <Button Name="btnEnviarFactura" Content="{x:Static p:Strings.EnviarFact}" HorizontalAlignment="Right" Margin="0,0,50,111" VerticalAlignment="Bottom" Width="190" Click="Button_Click_4" Grid.Column="1"/>
+            <Button Name="btnEnviarNota" Content="{x:Static p:Strings.EnviarNot}" Margin="50,0,50,37" Height="41" VerticalAlignment="Bottom" Click="Button_Click_2" Grid.Column="1"/>
+            <Border BorderBrush="#01579b" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Width="1"/>
+            <Label Content="{x:Static p:Strings.Facturas}" Margin="10,0" VerticalAlignment="Top" Style="{StaticResource gigante}" Grid.ColumnSpan="2"/>
+            <Button Content="{x:Static p:Strings.MarcarPagado}" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="163" Click="Button_Click_5"/>
+            <CheckBox x:Name="cbFacturasNoPagadas" Content="{x:Static p:Strings.FacturasNoPagadas}" Grid.Column="1" Margin="10,117,10,0" VerticalAlignment="Top" FontSize="16" Height="Auto" Checked="cbFacturasNoPagadas_Checked" Unchecked="cbFacturasNoPagadas_Unchecked"/>
+        </Grid>
+
+        <Grid x:Name="gAjustes" Background="#4fc3f7" Margin="70,0,0,0" Visibility="Collapsed">
+            <Rectangle HorizontalAlignment="Left" Height="246" Margin="10,82,0,0" Stroke="Black" VerticalAlignment="Top" Width="287"/>
+            <Label Content="{x:Static p:Strings.Turnos}" HorizontalAlignment="Left" Margin="26,92,0,0" VerticalAlignment="Top" Style="{StaticResource estilotitulos}"/>
+            <DataGrid x:Name="dgTurns" HorizontalAlignment="Left" Height="146" Margin="26,124,0,0" VerticalAlignment="Top" Width="114" CanUserAddRows="False" IsReadOnly="True" ColumnWidth="*"/>
+            <Label Content="{x:Static p:Strings.Inicio}" HorizontalAlignment="Left" Margin="146,122,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}"/>
+            <Label Content="{x:Static p:Strings.Fin}" HorizontalAlignment="Left" Margin="146,160,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}"/>
+            <TextBox x:Name="txtInicioTurn" Tag="{x:Static p:Strings.ModeloHora}" HorizontalAlignment="Left" Height="30" Margin="196,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" MaxLength="5" LostFocus="controlHoras_LostFocus" KeyUp="controlHoras_KeyUp" KeyDown="controlHoras_KeyDown"/>
+            <TextBox x:Name="txtFinTurn" Tag="{x:Static p:Strings.ModeloHora}" HorizontalAlignment="Left" Height="30" Margin="196,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59"  MaxLength="5" LostFocus="controlHoras_LostFocus" KeyUp="controlHoras_KeyUp" KeyDown="controlHoras_KeyDown"/>
+            <Button x:Name="btnBorrarTurn" Content="{x:Static p:Strings.Borrar}" HorizontalAlignment="Left" Margin="196,276,0,0" VerticalAlignment="Top" Width="84" Click="btnBorrarTurn_Click"/>
+            <Button x:Name="btnAñadirTurn" Content="{x:Static p:Strings.Añadir}" HorizontalAlignment="Left" Margin="146,210,0,0" VerticalAlignment="Top" Width="134" Click="btnAñadirTurn_Click"/>
+            <Label Content="{x:Static p:Strings.NuevoTurno}" HorizontalAlignment="Left" Margin="146,92,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}"/>
+            <Rectangle HorizontalAlignment="Left" Height="206" Margin="371,104,0,0" Stroke="Black" VerticalAlignment="Top" Width="307"/>
+            <TextBox x:Name="txtTelefonoTelegram" HorizontalAlignment="Left" Height="30" Margin="486,150,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" KeyDown="txtTelefonoTelegram_KeyDown"/>
+            <TextBox x:Name="txtCodigoTelegram" HorizontalAlignment="Left" Height="30" Margin="486,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" KeyDown="txtTelefonoTelegram_KeyDown"/>
+            <Label Content="{x:Static p:Strings.Telefono}" HorizontalAlignment="Left" Margin="407,150,0,0" VerticalAlignment="Top" Style="{StaticResource estiloinfo}"/>
+            <Label Content="{x:Static p:Strings.Codigo}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="407,184,0,0" Style="{StaticResource estiloinfo}"/>
+            <Button Content="{x:Static p:Strings.EnviarCod}" HorizontalAlignment="Left" Margin="391,248,0,0" VerticalAlignment="Top" Width="133" Click="Button_Click"/>
+            <Button x:Name="btnconectar" Content="Conectar" HorizontalAlignment="Left" Margin="553,248,0,0" VerticalAlignment="Top" Width="105" IsEnabled="False" Click="Button_Click_1"/>
+            <Button x:Name="btnModificarTurn" Content="{x:Static p:Strings.Modificar}" HorizontalAlignment="Left" Margin="26,276,0,0" VerticalAlignment="Top" Width="114"/>
+            <Rectangle HorizontalAlignment="Left" Height="234" Margin="10,334,0,0" Stroke="Black" VerticalAlignment="Top" Width="301"/>
+            <Label Content="{x:Static p:Strings.InfoEmpresa}" HorizontalAlignment="Left" Margin="19,344,0,0" VerticalAlignment="Top" Style="{StaticResource estilotitulos}"/>
+            <TextBox x:Name="txtnombreempresa" HorizontalAlignment="Left" Height="30" Margin="106,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" LostFocus="txtnombreempresa_LostFocus"/>
+            <Label Content="{x:Static p:Strings.Nombre}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,380,0,0" Style="{StaticResource estiloinfo}"/>
+            <TextBox x:Name="txtcif" HorizontalAlignment="Left" Height="30" Margin="106,414,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" LostFocus="txtcif_LostFocus"/>
+            <Label Content="{x:Static p:Strings.Cif}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="63,414,0,0" Style="{StaticResource estiloinfo}"/>
+            <TextBox x:Name="txtdireccion" HorizontalAlignment="Left" Height="30" Margin="106,444,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" LostFocus="txtdireccion_LostFocus"/>
+            <Label Content="{x:Static p:Strings.Direccion}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,444,0,0" Style="{StaticResource estiloinfo}"/>
+            <TextBox x:Name="txttelefono" HorizontalAlignment="Left" Height="30" Margin="106,480,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" LostFocus="txttelefono_LostFocus"/>
+            <Label Content="{x:Static p:Strings.Telefono}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,480,0,0" Style="{StaticResource estiloinfo}"/>
+            <TextBox x:Name="txtemail" HorizontalAlignment="Left" Height="30" Margin="106,514,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" LostFocus="txtemail_LostFocus"/>
+            <Label Content="{x:Static p:Strings.Email}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="48,514,0,0" Style="{StaticResource estiloinfo}"/>
+            <Label Content="{x:Static p:Strings.ConectarTelegram}" HorizontalAlignment="Left" Margin="383,112,0,0" VerticalAlignment="Top" Style="{StaticResource estilotitulos}"/>
+            <Label Content="{x:Static p:Strings.Ajustes}" Margin="10,0" VerticalAlignment="Top" Style="{StaticResource gigante}" Grid.ColumnSpan="2"/>
+            <Rectangle HorizontalAlignment="Left" Height="106" Margin="371,338,0,0" Stroke="Black" VerticalAlignment="Top" Width="153"/>
+            <Label Content="{x:Static p:Strings.Idioma}" HorizontalAlignment="Left" Margin="383,354,0,0" VerticalAlignment="Top" Style="{StaticResource estilotitulos}"/>
+            <ComboBox Name="cbIdioma" HorizontalAlignment="Left" Margin="383,396,0,0" VerticalAlignment="Top" Width="125" FontSize="16" SelectionChanged="ComboBox_SelectionChanged">
+                <ComboBoxItem Name="cbiEspa" Content="{x:Static p:Strings.es}"/>
+                <ComboBoxItem Name="cbiIng" Content="{x:Static p:Strings.en}"/>
+                <ComboBoxItem Name="cbiFran" Content="{x:Static p:Strings.fr}"/>
+            </ComboBox>
+            <Button Content="Insertar datos de prueba" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="224" Height="49" Click="Button_Click_6"/>
+
+        </Grid>
+
+        <Grid x:Name="panel" HorizontalAlignment="Left" Width="70" Background="#00b0ff">
+
+            <StackPanel x:Name="stackpanel">
+
+                <Grid Height="90">
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="80,-20,50,0" Text="MENU" Foreground="White" FontSize="32" Background="Transparent" HorizontalAlignment="Right" VerticalAlignment="Center" MouseDown="TextBlock_MouseDown" FontWeight="Bold">
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="MouseDown">
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="panel" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="250" To="70" Duration="0:0:0.2"></DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
+
+                    <ToggleButton Name="tgbtn" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" Width="50" Height="50" Margin="10,-20,0,0" BorderThickness="0" Style="{StaticResource tb_style}" Checked="tgbtn_Checked" Unchecked="tgbtn_Unchecked">
+                        <ToggleButton.Background>
+                            <ImageBrush ImageSource="/TelERP;component/Recursos/menu.png" Stretch="None"/>
+                        </ToggleButton.Background>
+
+                        <ToggleButton.Triggers>
+                            <EventTrigger RoutedEvent="ToggleButton.Unchecked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="hidestackpanel">
+                                        <DoubleAnimation Storyboard.TargetName="panel" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="250" To="70" Duration="0:0:0.2"></DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="ToggleButton.Checked">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="showstackpanel">
+                                        <DoubleAnimation Storyboard.TargetName="panel" Storyboard.TargetProperty="Width" BeginTime="0:0:0" From="70" To="250" Duration="0:0:0.2"></DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ToggleButton.Triggers>
+
+                        <ToggleButton.ToolTip>
+                            <ToolTip x:Name="tt_desplegar" Content="Desplegar"/>
+                        </ToggleButton.ToolTip>
+
+                    </ToggleButton>
+
+                </Grid>
+
+                <Separator Background="Black" Height="10"/>
+
+                <ListView x:Name="listview" Background="Transparent" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="listview_SelectionChanged">
+
+                    <ListViewItem x:Name="lvihome" HorizontalAlignment="Left" Margin="0,0,0,0">
+                        <StackPanel Orientation="Horizontal" Width="250">
+                            <Image Source="/TelERP;component/Recursos/home.png" Stretch="Fill" Margin="12,0,0,0" Width="35" Height="35"/>
+                            <TextBlock Text="{x:Static p:Strings.General}" Margin="25,0,0,0" Foreground="White" FontSize="24" Background="Transparent" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_home" Content="{x:Static p:Strings.General}"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="lviusers" HorizontalAlignment="Left" Margin="0,0,0,0">
+                        <StackPanel Orientation="Horizontal" Width="250">
+                            <Image Source="/TelERP;component/Recursos/account-multiple.png" Stretch="Fill" Margin="12,0,0,0" Width="35" Height="35"/>
+                            <TextBlock Text="{x:Static p:Strings.Usuarios}" Margin="25,0,0,0" Foreground="White" FontSize="24" Background="Transparent" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_users" Content="{x:Static p:Strings.Usuarios}"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="lviservices" HorizontalAlignment="Left" Margin="0,0,0,0">
+                        <StackPanel Orientation="Horizontal" Width="250">
+                            <Image Source="/TelERP;component/Recursos/services.png" Stretch="Fill" Margin="12,0,0,0" Width="35" Height="35"/>
+                            <TextBlock Text="{x:Static p:Strings.Servicios}" Margin="25,0,0,0" Foreground="White" FontSize="24" Background="Transparent" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_service" Content="{x:Static p:Strings.Servicios}"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="lviassign" HorizontalAlignment="Left" Margin="0,0,0,0">
+                        <StackPanel Orientation="Horizontal" Width="250">
+                            <Image Source="/TelERP;component/Recursos/trabajo.png" Stretch="Fill" Margin="12,0,0,0" Width="35" Height="35"/>
+                            <TextBlock Text="{x:Static p:Strings.Trabajos}" Margin="25,0,0,0" Foreground="White" FontSize="24" Background="Transparent" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_assign" Content="{x:Static p:Strings.Trabajos}"/>
+                        </ListViewItem.ToolTip>
+                    </ListViewItem>
+
+                    <ListViewItem x:Name="lviinvoices" HorizontalAlignment="Left" Margin="0,0,0,0">
+                        <StackPanel Orientation="Horizontal" Width="250">
+                            <Image Source="/TelERP;component/Recursos/receipt.png" Stretch="Fill" Margin="12,0,0,0" Width="35" Height="35"/>
+                            <TextBlock Text="{x:Static p:Strings.Facturas}" Margin="25,0,0,0" Foreground="White" FontSize="24" Background="Transparent" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_invoice" Content="{x:Static p:Strings.Facturas}"/>
+                        </ListViewItem.ToolTip>
+
+                    </ListViewItem>
+
+                    <Separator Background="Black" Height="10"/>
+
+                    <ListViewItem x:Name="lviajustes" HorizontalAlignment="Left" Margin="0,0,0,0">
+                        <StackPanel Orientation="Horizontal" Width="250">
+                            <Image x:Name="imgsett" Source="/TelERP;component/Recursos/cog.png" Stretch="Fill" Margin="12,0,0,0" Width="35" Height="35" RenderTransformOrigin="0.5,0.5">
+                                <Image.RenderTransform>
+                                    <RotateTransform Angle="0"/>
+                                </Image.RenderTransform>
+
+                            </Image>
+                            <TextBlock Text="{x:Static p:Strings.Ajustes}" Margin="25,0,0,0" Foreground="White" FontSize="24" Background="Transparent" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <ListViewItem.ToolTip>
+                            <ToolTip x:Name="tt_settings" Content="{x:Static p:Strings.Ajustes}"/>
+                        </ListViewItem.ToolTip>
+                        <ListViewItem.Triggers>
+                            <EventTrigger RoutedEvent="ListViewItem.MouseEnter">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="rotarsett">
+                                        <DoubleAnimation Storyboard.TargetName="imgsett" Storyboard.TargetProperty="RenderTransform.Angle" From="0" To="180" Duration="0:0:0.5"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                            <EventTrigger RoutedEvent="ListViewItem.MouseLeave">
+                                <BeginStoryboard>
+                                    <Storyboard x:Name="desrotarsett">
+                                        <DoubleAnimation Storyboard.TargetName="imgsett" Storyboard.TargetProperty="RenderTransform.Angle" From="60" To="0" Duration="0:0:0"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </ListViewItem.Triggers>
+                    </ListViewItem>
+
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                        <Border x:Name="bd" Height="50" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalAlignment}"/>
+                                        </Border>
+
+                                        <ControlTemplate.Triggers>
+                                            <MultiTrigger>
+                                                <MultiTrigger.Conditions>
+                                                    <Condition Property="IsMouseOver" Value="True"/>
+                                                </MultiTrigger.Conditions>
+                                                <Setter Property="Background" TargetName="bd" Value="#01579b"/>
+                                                <Setter Property="BorderBrush" TargetName="bd" Value="#01579b"/>
+                                            </MultiTrigger>
+                                        </ControlTemplate.Triggers>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+                </ListView>
+
+            </StackPanel>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
